@@ -5,10 +5,6 @@ import { slide as Menu } from 'react-burger-menu'
 import PossibleRoutes from './possibleRoutes';
 
 function HomePage(){
-  fetch('http://localhost:3000/data', {
-    credentials: 'include',
-  })
-
     return (
         <div className="home">
           <header className="App-header">
@@ -20,7 +16,7 @@ function HomePage(){
         </div>
         
       );
-    }
+}
 
 function SearchBox(props) {
 
@@ -60,7 +56,7 @@ function SearchBox(props) {
   function CityMap() {
     return(
       <div className = "map">
-        <img src = "https://maps.googleapis.com/maps/api/staticmap?center=New+York,NY&zoom=13&size=1200x800&maptype=roadmap&key=insertKey" alt = "Map of NYC"/>
+        <img src = "NYCSubway.jpg" alt = "Map of NYC"/>
       </div>
     )
   }

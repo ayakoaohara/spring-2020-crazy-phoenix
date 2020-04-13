@@ -4,27 +4,12 @@ import SignupForm from './SignUp.js';
 import LoginForm from './Login.js';
 import {HomePage} from './HomePage.js';
 import DetailedRoute from './DetailedRoute.js';
-import Profile from './UserProfile.js';
 import PossibleRoutes from './possibleRoutes';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
-    state = {
-      hamburgerOpen: false
-    };
-    hamburgerHandler = () => {
-      this.setState((prevState) => {
-        return {hamburgerOpen: !prevState.hamburgerOpen};
-      });
-    };
+function App(props) {
 
-    render(){
-    let hamburger;
-
-    if(this.state.hamburgerOpen){
-      hamburger = <Profile hamburgerHandler={this.hamburgerHandler}/>;
-    }
     return (
       <div className="App">
       <Router>
@@ -32,16 +17,12 @@ class App extends Component {
         {/* <header className="App-header"> */}
         
         <Route path="/Login">
-          <LoginForm hamburgerHandler={this.hamburgerHandler}/>
-          {hamburger}
+          <LoginForm/>
         </Route>
         <Route path="/SignUp">
-          <SignupForm/> 
+          <SignupForm/>
         </Route>
-        <Route path="/UserProfile">
-          <Profile/> 
-        </Route>
-      
+        
         {/* </header> */}
         <Route path = "/Home">
           <HomePage></HomePage>
@@ -58,7 +39,5 @@ class App extends Component {
                 
       </div>
     );
-    }
 }
-    
 export default App;

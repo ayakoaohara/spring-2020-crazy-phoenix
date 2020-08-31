@@ -37,11 +37,14 @@ passport.deserializeUser(User.deserializeUser());
 
 // connecting to db
 let dbUrl = '';
+/*
 if (process.env.NODE_ENV === 'PRODUCTION') { // localhost in travis
   dbUrl = `mongodb://localhost/test`;
 } else {
   dbUrl = `mongodb://172.17.0.1:27017/container`; // for container use
-}
+}*/
+dbUrl = 'mongodb://localhost/test';
+
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   if (err) {
     console.log('Could not connect to database');

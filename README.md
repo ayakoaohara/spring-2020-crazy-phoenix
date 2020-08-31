@@ -13,7 +13,7 @@ Our MVP will consist of the following main features:
 * Route selection
 
 # to run
-* in app/back-end/ directory, install dependencies by typing npm install.
+* in app/back-end/ directory, install dependencies by typing npm install. in app/front-end/ direcotry, do the same.
 * database (Mongo DB, either on local machine or Atlas) must be already running.
 * in the back-end directory, in the console, type node server.js
 * in the front-end directory, in another console, type npm start.

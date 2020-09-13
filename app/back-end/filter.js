@@ -104,6 +104,9 @@ const filterRoutes = (rawData) => {
 
 const getAccessibleRouteList = (rawData) => filterRoutes(rawData);
 
+// export to app.js and test/test.js
 module.exports = {
   getAccessibleRouteList,
+  isAccessible,
+  filterRoutes,
 };

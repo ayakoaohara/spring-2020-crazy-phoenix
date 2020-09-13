@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from 'react';
 import './UserProfile.css'
 
+// display user profile
 function Profile(props){
     return(
         <nav className= 'drawer'>
@@ -12,7 +12,6 @@ function Profile(props){
             </ul>
         </nav>
     )
-
 }
 
 export default Profile;

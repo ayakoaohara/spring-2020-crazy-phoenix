@@ -1,5 +1,4 @@
-// list of accessible stations
-// only meant to compare the initial n-length of string
+// list of accessible stations by wheelchair
 const manhattan = [
   '14 St', '14 St - Union Sq', '23 St', '28 St', '34 St - Herald Sq', '34 St - Penn Station',
   '34 St - Hudson Yds', '34 St - Hudson Yards', '42 St - Port Authority Bus Terminal', '47 - 50 Sts - Rockefeller Ctr',
@@ -28,6 +27,7 @@ const queens = [
   'Rockaway Park - Beach 116 St', 'Sutphin Blvd - Archer Av / JFK Airport',
 ];
 
+// get routes object from the search result via Google Maps API
 const getRoutesObject = (rawData) => {
   if (rawData.routes === null) {
     return [];
@@ -35,6 +35,7 @@ const getRoutesObject = (rawData) => {
   return rawData.routes;
 };
 
+// return routes that uses the subway
 const getSubwayRoutes = (rawData) => {
   const routeList = getRoutesObject(rawData);
   const accessibleList = [];
@@ -54,6 +55,7 @@ const getSubwayRoutes = (rawData) => {
   return accessibleList;
 };
 
+// checks if the inputted station is one of the stations that are accessible by wheelchair
 const isAccessible = (station) => {
   for (let i = 0; i < manhattan.length; i++) {
     if (station.startsWith(manhattan[i])) {
@@ -78,6 +80,7 @@ const isAccessible = (station) => {
   return false;
 };
 
+// returns a list of routes that is accessible by wheelchair
 const filterRoutes = (rawData) => {
   const routesList = getSubwayRoutes(rawData);
   const filteredRoutes = [];
@@ -103,6 +106,4 @@ const getAccessibleRouteList = (rawData) => filterRoutes(rawData);
 
 module.exports = {
   getAccessibleRouteList,
-  isAccessible,
-  filterRoutes,
 };

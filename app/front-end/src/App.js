@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DetailedRoute from './DetailedRoute.js';
 import Profile from './UserProfile.js';
 import PossibleRoutes from './possibleRoutes';
 import LoginContainer from './LoginContainer';
 import SignUpContainer from './SignUpContainer';
-import './App.css';
 import HomePageContainer from "./HomePageContainer";
 
-
 function App(props) {
+  // paths
   return (
     <div className="App">
       <Router>
         <Switch>
-
           <Route path="/Home" render={() => <HomePageContainer origin={''} destination={''}/>}>
           </Route>
           <Route path="/Login" render={() => <LoginContainer isCorrect={false}/>}>
@@ -25,7 +23,6 @@ function App(props) {
             <Profile/>
           </Route>
 
-
           <Route path = "/Route" component={DetailedRoute}>
           </Route>
 
@@ -33,7 +30,6 @@ function App(props) {
           </Route>
         </Switch>
       </Router>
-
     </div>
   );
 }

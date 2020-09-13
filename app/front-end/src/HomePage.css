@@ -1,18 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
 .home{
-  
   background-color: rgb(76, 155, 175);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
- 
-  
+
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
   background-image:url(https://maps.googleapis.com/maps/api/staticmap?center=New+York,NY&zoom=13&size=1200x800&maptype=roadmap&key=AIzaSyDx0uVQTk3Ukph1ph9ppl97vC3M7rVKJ6U);
   background-size: 750px;
 }
-
 
 .homeForm{
   position: absolute;
@@ -26,7 +24,6 @@
   padding: 40px;
 }
 
-
 input.originI[type=text]  , input[type=password] {
   width: 94%;
   padding: 12px 10px;
@@ -35,6 +32,7 @@ input.originI[type=text]  , input[type=password] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
 input.destinationI[type=text]  , input[type=password] {
   width: 94%;
   padding: 12px 10px;

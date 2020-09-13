@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router';
 import SignUp from "./SignUp";
 
+// redirect to /Login upon successful signup
 const SignUpContainer = (props) => {
   let isFilled = props.isFilled;
   const change = () => {

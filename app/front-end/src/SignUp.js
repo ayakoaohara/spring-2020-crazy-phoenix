@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from 'react';
 import './SignUp.css';
 import appLogo from './appLogo.png';
 
-// TODO: username field is not used (might be wise to remove)
 let first, last, email, password, password2;
+// record typed user data
 const firstHandleChange = (event) => {
     first = event.target.value;
 };
@@ -22,6 +21,7 @@ const password2HandleChange = (event) => {
 };
 
 function SignupForm(props){
+    // send user information to backend to create account and record data in database
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!first || !last || !email || !password || !password) {
@@ -53,11 +53,7 @@ function SignupForm(props){
         </div>
         
         </div>
-          
-
-        
           <div className='form'>
-          
           <form id='login' className='signupForm' onSubmit={handleSubmit}>
                 <div class="logocontainer">
                     <img src={appLogo} alt="Avatar" class="avatar"></img>
@@ -81,15 +77,11 @@ function SignupForm(props){
                     <button  type='submit'>Sign Up</button>
                 </div>
             </form>
-        
           </div>
-          
         </div>
         <div id='signinOpt'>Already have an account?</div>
         <a id="signin-opt" href="/Login"> Sign In </a>
         </header>
-
     )
 }
-
 export default SignupForm;

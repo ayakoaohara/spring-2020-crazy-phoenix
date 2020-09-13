@@ -10,13 +10,13 @@ header#detailedRoute{
     color: white;
   }
 
-
 .Stops {
     align-items: center;
     display: flex;
     flex-direction: column;
     background-color:rgb(150, 206, 219);
 }
+
 .Stop {
     border: 2px;
     border-style: solid;
@@ -38,4 +38,4 @@ header#detailedRoute{
     align-items: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
+}

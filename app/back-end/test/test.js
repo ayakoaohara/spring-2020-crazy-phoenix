@@ -19,7 +19,6 @@ const stubRoute2 = JSON.parse(stubRouteFile2);
 let request = null;
 let server = null;
 const mockUserEmail = 'test@email.com';
-const mockUserPassword = 'p';
 
 // test setup
 before(function(done) {
@@ -48,7 +47,7 @@ describe('test signing up a user', () => {
         done();
       });
   });
-  // attempt to signin with the same username should return an error message
+  // attempt to register with a username that is already registered should return an error message
   it('should return an error message', function(done) {
     request.get('/signup')
       .query({firstname: 'fn', lastname: 'ln', email: mockUserEmail, password: 'password'})

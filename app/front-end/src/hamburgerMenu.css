@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
 .bm-item {
     display: inline-block;
   
@@ -11,11 +12,10 @@
     color: white;
   }
   
-  /* Change color on hover */
-  .bm-item:hover {
+/* Change color on hover */
+.bm-item:hover {
     color: white;
-  }
-  
+}
 
 .bm-burger-button {
     position: absolute;
@@ -23,65 +23,64 @@
     height: 30px;
     left: 36px;
     top: 36px;
-  }
+}
   
-  /* Color/shape of burger icon bars */
-  .bm-burger-bars {
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
     background: #4bd452;
-  }
+}
   
-  /* Position and sizing of clickable cross button */
-  .bm-cross-button {
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
     height: 24px;
     width: 24px;
-  }
+}
   
-  /* Color/shape of close button cross */
-  .bm-cross {
+/* Color/shape of close button cross */
+.bm-cross {
     background: white;
-  }
+}
   
-  /* General sidebar styles */
-  .bm-menu {
+/* General sidebar styles */
+.bm-menu {
     background: rgb(212, 15, 212);
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
-  }
+}
   
-  /* Morph shape necessary with bubble or elastic */
-  .bm-morph-shape {
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
     fill: #373a47;
-  }
+}
   
-  /* Wrapper for item list */
-  .bm-item-list {
+/* Wrapper for item list */
+.bm-item-list {
     color: #b8b7ad;
-  }
-  
-  /* Styling of overlay */
-  .bm-overlay {
+}
+
+/* Styling of overlay */
+.bm-overlay {
     background: rgba(0, 0, 0, 0);
+}
+
+@media screen and (min-width: 416px) {
+  .bm-burger-button{
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 20px;
   }
-  
-  @media screen and (min-width: 416px) {
-      .bm-burger-button{
-        width: 36px;
-        height: 30px;
-        left: 36px;
-        top: 20px;
-      }
-  
+
+}
+
+
+@media screen and (max-width: 415px) {
+  .bm-burger-button{
+    width: 16px;
+    height: 10px;
+    left: 16px;
+    top: 16px;
+    margin-top: 5px;
   }
-  
-  
-  @media screen and (max-width: 415px) {
-      .bm-burger-button{
-        width: 16px;
-        height: 10px;
-        left: 16px;
-        top: 16px;
-        margin-top: 5px;
-      }
-  
-  }
-  
+
+}

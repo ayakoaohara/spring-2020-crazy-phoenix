@@ -1,11 +1,10 @@
-import React, {Component, useState, useEffect} from 'react';
+import React from 'react';
 import './possibleRoutes.css';
 import {Link} from "react-router-dom";
-import Hamburger from './hamburgerMenu.js';
 import Toolbar from './toolbar.js';
 
-// return string of route to display
-const getShortRoute = (routeObjectString) => { console.log(routeObjectString);
+// parse input, string representing a route, to be displayed as search result
+const getShortRoute = (routeObjectString) => {
   const object = JSON.parse(routeObjectString);
   const legs = object.legs;
   let routePath = '';
@@ -18,24 +17,11 @@ const getShortRoute = (routeObjectString) => { console.log(routeObjectString);
         routePath += '---> ';
         routePath += steps[k].transit_details.arrival_stop.name;
         routePath += "(" +steps[k].transit_details.arrival_time.text+")";
-
       } else {
         routePath += steps[k].travel_mode;
       }
       routePath += '->';
     }
-    //// Simplified display
-    
-    // routePath += "Starting Subway Stop";
-    // routePath += '->';
-    // routePath += steps[1].transit_details.departure_stop.name;
-    // routePath += "(" +steps[1].transit_details.departure_time.text+")";
-    // routePath += ' ---> ';
-    // routePath += steps[steps.length-2].transit_details.arrival_stop.name;
-    // routePath += "(" +steps[steps.length-2].transit_details.arrival_time.text+")";
-    // routePath += '->';
-    // routePath += "Ending Subway Stop";
-
   }
   return routePath;
 };
@@ -49,9 +35,6 @@ const PossibleRoutes = (props) => {
     const string = JSON.stringify(routesList[i]);
     routeObjectStringArray.push(string);
   }
-
-
-
   return (
     <header id='possibleRoutes'>
     <Toolbar/>
@@ -65,7 +48,6 @@ const PossibleRoutes = (props) => {
            <Link to={{pathname: '/Route', state: {routeString}}} id='routelink'>select</Link></div>
           </section>
           </div>
-
         ))}
       </section>
     </div>

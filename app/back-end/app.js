@@ -2,19 +2,19 @@ const express = require('express');
 const fetch = require('node-fetch');
 const cors = require('cors');
 require('dotenv').config();
-// passport
+// import passport
 const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const { getAccessibleRouteList } = require('./filter');
 const fs = require('fs');
+const { getAccessibleRouteList } = require('./filter');
 
+// set up express
 const app = express();
 app.use(cors());
-app.use(express.urlencoded({extended: false}));
-
 app.use(express.urlencoded({ extended: false }));
 
+// set API key
 let apiKey;
 if (process.env.NODE_ENV === 'PRODUCTION') {
   apiKey = process.env.API_KEY;
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
   apiKey = conf.API_KEY;
 }
 
-// schema
+// user schema
 const User = require('./db.js');
 
 app.use(passport.initialize());
@@ -44,7 +44,6 @@ if (process.env.NODE_ENV === 'PRODUCTION') { // localhost in travis
   dbUrl = `mongodb://172.17.0.1:27017/container`; // for container use
 }*/
 dbUrl = 'mongodb://localhost/test';
-
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   if (err) {
     console.log('Could not connect to database');
@@ -56,6 +55,7 @@ mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (er
 // avoid deprecation warning for collection.ensureIndex
 mongoose.set('useCreateIndex', true);
 
+// returns a string to pass to Google Maps API
 const replaceSpace = (location) => {
   let newLocation = '';
   for (let i = 0; i < location.length; i += 1) {
@@ -68,6 +68,7 @@ const replaceSpace = (location) => {
   return newLocation;
 };
 
+// query routes on Google Maps API
 app.get('/data', (req, res) => {
   const origin = replaceSpace(req.query.origin);
   const destination = replaceSpace(req.query.destination);
@@ -81,6 +82,7 @@ app.get('/data', (req, res) => {
     .catch(console.error);
 });
 
+// authenticate a user at login
 app.get('/authenticate', (req, res) => {
   const { email } = req.query;
   const { password } = req.query;
@@ -95,6 +97,7 @@ app.get('/authenticate', (req, res) => {
   })(req, res);
 });
 
+// register a user
 app.get('/signup', (req, res) => {
   const { firstname } = req.query;
   const { lastname } = req.query;
